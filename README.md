@@ -17,14 +17,13 @@ El conjunto de datos utilizado estuvo conformado por 80 registros de atletas uni
 
 El flujo metodológico incluyó:
 
-- limpieza de nombres de columnas;
-- eliminación de identificadores personales;
-- anonimización del conjunto de datos;
+- limpieza y estandarización de nombres de columnas;
+- eliminación de identificadores personales y variables no predictivas;
 - recodificación de la variable objetivo;
-- eliminación de variables no predictivas;
+- conversión de variables a formato numérico;
+- imputación de valores faltantes mediante la mediana;
 - análisis de correlación de Pearson;
 - selección de características mediante SelectKBest;
-- imputación de valores faltantes;
 - escalamiento mediante StandardScaler;
 - partición estratificada 80/20;
 - validación cruzada estratificada de 5 pliegues.
@@ -56,7 +55,8 @@ Se utilizó SHAP para identificar las variables morfológicas con mayor influenc
 
 ## Archivos del repositorio
 
-- `MorphoFusion_MLDL_codigo.ipynb`: notebook principal del sistema.
+- `Notebooks/MorphoFusion_MLDL_final.ipynb`: notebook principal del sistema.
+- `Notebooks/MorphoFusion_MLDL_experimental_(prueba).ipynb`: notebook experimental de respaldo.
 - `dataset_limpio_morphofusion_mldl.csv`: dataset limpio y anonimizado.
 - `requirements.txt`: librerías necesarias para ejecutar el notebook.
 - `README.md`: descripción general del proyecto.
@@ -65,10 +65,16 @@ Se utilizó SHAP para identificar las variables morfológicas con mayor influenc
 
 Para ejecutar el notebook en Google Colab:
 
-1. Abrir `MorphoFusion_MLDL_codigo.ipynb`.
+1. Abrir `Notebooks/MorphoFusion_MLDL_final.ipynb`.
 2. Instalar las dependencias indicadas en `requirements.txt`.
 3. Cargar el dataset limpio.
 4. Ejecutar las celdas en orden.
+
+## Resultados principales
+
+El sistema permitió comparar modelos de Machine Learning y Deep Learning para la clasificación binaria del nivel de rendimiento deportivo.
+
+Entre los modelos evaluados, Regresión Logística presentó el mejor equilibrio general entre métricas de clasificación en el conjunto de prueba. Los modelos de Deep Learning Attention y CNN1D mostraron valores altos de AUC-ROC, aunque su interpretación debe considerarse con cautela debido al tamaño reducido de la muestra.
 
 ## Privacidad de datos
 
